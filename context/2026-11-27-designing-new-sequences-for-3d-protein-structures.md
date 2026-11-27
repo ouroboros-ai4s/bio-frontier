@@ -26,6 +26,20 @@ tags:
 
 > PD-L1、IL-7Rα 用的是 GPT-6.2 先前生成的骨架. PD-1、VEGF-A、MDM2 用的是 ESMFold2 根据 Onava 此前识别的小型结合蛋白预测出的复合物结构. 这三组里, 原 minibinder 序列用于上游结构预测, 到 GPT-6.2 设计新序列时才被省去. §3.3.1, p. 22.
 
-`For three targets, we started with computationally predicted structures of confirmed minibinders ...` 这三个 target 是 PD-1、VEGF-A 和 MDM2. 这三组用的是 Onava **从以往研究中收集的、已证实能结合的 minibinder**. 论文写 "we used ESMFold2 to predict complex structures from binders previously identified by Onava." 这次实验中, GPT-6.2 为这些复合物里的 minibinder backbone 设计新 sequence. §3.3.1, p. 22.
+`For three targets, we started with computationally predicted structures of confirmed minibinders ...` 这三个 target 是 PD-1、VEGF-A 和 MDM2. 这三组用的是 Onava **从以往研究中收集的、已证实能结合的 minibinder**. 论文写 "we used ESMFold2 to predict complex structures from binders previously identified by Onava." 这次实验中, GPT-6.2 为这些复合物里的 minibinder backbone 设计新 sequence. §3.3.1, p. 22. 这里交代了输入来源, 并报告 GPT-6.2 设计新序列的结果.
 
 > 所以 VEGF-A 虽然出现在两项实验里, 两组数字对应的是不同的候选. 第一项测试的是 GPT-6.2 从头设计骨架的 46 个候选, 8 个检出结合. 第二项测试的是 GPT-6.2 根据已有骨架设计新序列的 42 个候选, 26 个检出结合. 第二项里沿用 GPT-6.2 先前设计骨架的是 PD-L1 和 IL-7Rα 两组. §2.5, p. 16 · §3.3.1, p. 22.
+
+随后的 3 个尚未发表的 minibinder 骨架, 对应 2 个 target. 其中 2 个 backbone 针对 PD-L1, 1 个针对 IL-7Rα. 这些 backbone 是 GPT-6.2 此前生成 **ProteinMPNN** ([Robust deep learning–based protein sequence design using ProteinMPNN (Justas Dauparas et al, 2022)](https://www.science.org/doi/10.1126/science.add2187)) 配过序列, 制备出的 3 个蛋白都在实验室里检出了 binding. 这次团队把同样的 backbone 交给 GPT-6.2, 隐去原序列, 让它设计新序列. 107 个是按新序列制备并测试的蛋白数量, 其中 PD-L1 有 $9/89$ 个检出结合, IL-7Rα 有 $5/18$ 个, 合计 14/107 (13.1%). §3.3.1, p. 22.
+
+论文明确区分 ProteinMPNN 和 SolubleMPNN:
+
+- **SolubleMPNN** 出现在第一项实验的方法里. GPT-6.2 生成候选骨架后, 团队用 SolubleMPNN 为每个骨架设计 8 条候选序列. §2.5, p. 14.
+- **ProteinMPNN** 出现在博客对第二项实验的背景说明里. 论文 §3.3.1 确认了骨架来源和原序列被隐藏, 但没有注明那 3 条原序列具体用了哪个 MPNN 版本. §3.3.1, p. 22.
+
+从模型本身看, 在论文里 ProteinMPNN 指 Dauparas et al. (2022) 的模型, SolubleMPNN 指 Goverde et al. (2024) 在 ProteinMPNN 基础上针对可溶蛋白训练的版本. 论文明确记录的用法是, SolubleMPNN 用于第一项湿实验的候选序列设计, ProteinMPNN 用于另一项通用逆折叠的计算评估, 作为比较基准. §2.5, p. 14 · §3.1, p. 17.  
+OpenAI 究竟是在两个实验里使用了不同的 inverse-folding model, 还是可能把 SolubleMPNN 统称为 ProteinMPNN, 公开材料没有交代, 也没有证据把它归因于可溶性.  
+
+`... substantial differences in sequence give us strong evidence that GPT‑6.2's capabilities extend beyond memorization.` 这里的结构反驳「GPT-6.2 只是把每个骨架对应的原序列背了出来」的 hypothesis. 在少量未公开骨架上, GPT-6.2 能超出对原序列的直接复现, 但现有证据无法判断它在多大程度上依赖训练中见过的相似序列或结构.
+
+> 两条新序列与原序列分别有 52 和 58 个位置不同, 彼此也有 44 个位置不同. 这些数字只比较了这三条序列, 每条新序列仍可能分别接近训练集里另一条序列. 如果模型见过这些近邻, 就有可能借用其中已学到的序列模式, 从而生成仍能结合的候选.
