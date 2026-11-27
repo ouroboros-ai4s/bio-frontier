@@ -20,3 +20,7 @@ OpenAI 讲述了三类 **wet-lab validation (湿实验验证)**:
 ## Designing New Sequences for 3D Protein Structures
 
 [[2026-11-27-designing-new-sequences-for-3d-protein-structures]]
+
+## Redesigning the Parts of an Antibody that Bind to a Target
+
+[[2026-11-27-redesigning-the-parts-of-an-antibody-that-bind-to-a-target]]

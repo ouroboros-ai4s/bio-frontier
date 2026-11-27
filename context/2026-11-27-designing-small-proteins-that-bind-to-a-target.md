@@ -18,6 +18,8 @@ tags:
 >
 > We tested 322 minibinders against 5 targets in the lab. Of those, 35 (10.9%) tested positive for binding to their intended target. We found 5 hits for PD-L1 (a protein some cancers use to evade the immune system), 3 for IL-7Rα, 1 for TrkA, 8 for VEGF-A and 18 for IL-17A. The original RFdiffusion study⁠(opens in a new window) reported higher hit rates, but rates depend heavily on how strictly researchers filter designs before lab validation and their definition of binding. Nevertheless, our results provide early evidence that we can turn GPT‑6.2's three-dimensional designs into proteins that bind to their intended targets in the lab.
 > 我们在实验室中测试了 322 种迷你载体, 针对 5 个目标进行了实验. 结果显示, 有 35 种载体 (占 10.9%) 与它们的目标蛋白发生了结合. 我们发现, 有 5 种载体能够结合 PD-L1 (某些癌症利用这种蛋白来逃避免疫系统的攻击), 3 种载体能够结合 IL-7Rα, 1 种载体能够结合 TrkA, 8 种载体能够结合 VEGF-A, 而 18 种载体能够结合 IL-17A. 最初的 RFdiffusion 研究报告的命中率更高, 但这一数值很大程度上取决于研究人员在实验室验证之前对设计方案的筛选程度, 以及他们对 "结合" 定义的理解. 不过, 我们的研究结果初步表明, 我们可以将 GPT-6.2 中的三维结构设计转化为能够在实验室中与目标蛋白结合的蛋白质.  
+>
+> ![wet-lab-desktop-dark](./images/wet-lab-desktop-dark.png)
 
 **Target (靶蛋白)**: 研究者事先选定要结合的 protein, 并把它的 3D structure 交给 GPT‑6.2. 论文还区分了 target 和预期结合位点, 前者是整个实验所针对的分子, 后者是研究者希望小蛋白接触的表面区域. §2.1 默认会在 prompt 中指定靶蛋白表面的 **hotspot residues (热点残基)** 来标示这个区域. §2.1, p. 6.  
 **Small Protein (小型蛋白质)**: 这里指新设计的那一方, 论文称为 **minibinder**, 可译作「小型结合蛋白」. §2.1 把设计长度设为 80-120 个 amino acid residue. 这是该任务的长度设定, 论文在这里给出的是实验范围. 实验一中, GPT‑6.2 设计 backbone, SolubleMPNN 为 backbone 生成 sequence, 实验室测试的是按候选序列制成的蛋白. §2.1, p. 6 · §2.5, p. 14.  
