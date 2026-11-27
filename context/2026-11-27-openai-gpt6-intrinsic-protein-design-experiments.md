@@ -19,7 +19,7 @@ OpenAI 讲述了三类 **wet-lab validation (湿实验验证)**:
 
 ## Designing New Sequences for 3D Protein Structures
 
-[[2026-11-27-designing-new-sequences-for-3d-protein-structures]]
+[[2026-11-27-designing-new-sequences-for-3d-protein-structures]] 笔记梳理了 OpenAI 的 **minibinder inverse-folding 实验**. 研究人员给 GPT-6.2 提供 **minibinder 与靶蛋白的复合物骨架**, 隐去原 minibinder 序列, 让它根据骨架设计新序列. 输入骨架来自两处, 一组由 ESMFold2 根据已有结合蛋白预测, 另一组是 GPT-6.2 此前设计的 3 个未公开骨架. 团队用 ESMFold2、Boltz-2 和 OpenDDE 筛选候选, 再用 BLI 测试结合. 给定 **同一个未公开的 minibinder backbone**, GPT-6.2 设计出两条与原序列差异较大、彼此也明显不同的新序列.
 
 ## Redesigning the Parts of an Antibody that Bind to a Target
 
