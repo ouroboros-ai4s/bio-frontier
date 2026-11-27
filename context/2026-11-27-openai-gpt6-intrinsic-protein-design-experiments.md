@@ -5,7 +5,7 @@ tags:
 
 # GPT-6 Intrinsic Protein Design: Experimental Methods, Wet-Lab Validation, and Evidence
 
-> 本文从 OpenAI 发布的 [GPT-6 Models Demonstrate Intrinsic Protein-Design Capabilities](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/) 出发, 配和研究论文 [GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models](https://cdn.openai.com/pdf/gpt-6-a-universal-foundation-model-for-protein-biology.pdf) 作为主要原始证据来源, 进行阅读和分析, 旨在研究: 通用智能是否正在获得足以理解、推理和设计生物分子的内在能力, 并最终取代 AlphaFold、ESM、RFdiffusion 等面向特定任务的专业模型, 成为下一代 Protein AI 的核心基础, 并最终泛化到整个生物学智能.
+> 本文从 OpenAI **2026.11.24** 基于 **GPT-6.2** 的研究, 发布的 [GPT-6 Models Demonstrate Intrinsic Protein-Design Capabilities](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/) 出发, 配和研究论文 [GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models](https://cdn.openai.com/pdf/gpt-6-a-universal-foundation-model-for-protein-biology.pdf) 作为主要原始证据来源, 进行阅读和分析, 旨在研究: **通用智能是否正在获得足以理解、推理和设计生物分子的内在能力, 并最终取代 AlphaFold、ESM、RFdiffusion 等面向特定任务的专业模型, 成为下一代生物学智能的核心基础**.
 
 OpenAI 讲述了三类 **wet-lab validation (湿实验验证)**:
 
