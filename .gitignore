@@ -1,0 +1,9 @@
+# Agents
+.claude/
+.codex/
+.gemini/
+AGENTS.md
+.mcp.json
+
+# VSCode
+.vscode/
