@@ -19,18 +19,18 @@ tags:
 > We tested 322 minibinders against 5 targets in the lab. Of those, 35 (10.9%) tested positive for binding to their intended target. We found 5 hits for PD-L1 (a protein some cancers use to evade the immune system), 3 for IL-7Rα, 1 for TrkA, 8 for VEGF-A and 18 for IL-17A. The original RFdiffusion study⁠(opens in a new window) reported higher hit rates, but rates depend heavily on how strictly researchers filter designs before lab validation and their definition of binding. Nevertheless, our results provide early evidence that we can turn GPT‑6.2's three-dimensional designs into proteins that bind to their intended targets in the lab.
 > 我们在实验室中测试了 322 种迷你载体, 针对 5 个目标进行了实验. 结果显示, 有 35 种载体 (占 10.9%)与它们的目标蛋白发生了结合. 我们发现, 有 5 种载体能够结合 PD-L1 (某些癌症利用这种蛋白来逃避免疫系统的攻击), 3 种载体能够结合 IL-7Rα, 1 种载体能够结合 TrkA, 8 种载体能够结合 VEGF-A, 而 18 种载体能够结合 IL-17A. 最初的 RFdiffusion 研究报告的命中率更高, 但这一数值很大程度上取决于研究人员在实验室验证之前对设计方案的筛选程度, 以及他们对 "结合" 定义的理解. 不过, 我们的研究结果初步表明, 我们可以将 GPT-6.2 中的三维结构设计转化为能够在实验室中与目标蛋白结合的蛋白质.  
 
-**Target (靶蛋白)**: 研究者事先选定要结合的 protein, 并把它的 3D structure 交给 GPT‑6.2. 论文还区分了 target 和预期结合位点, 前者是整个实验所针对的分子, 后者是研究者希望小蛋白接触的表面区域. §2.1 默认会在 prompt 中指定靶蛋白表面的热点残基来标示这个区域. *论文 §2.1, 第 6 页*.
+**Target (靶蛋白)**: 研究者事先选定要结合的 protein, 并把它的 3D structure 交给 GPT‑6.2. 论文还区分了 target 和预期结合位点, 前者是整个实验所针对的分子, 后者是研究者希望小蛋白接触的表面区域. §2.1 默认会在 prompt 中指定靶蛋白表面的热点残基来标示这个区域. *§2.1, pp. 6*.  
+**Small Protein (小型蛋白质)**: 这里指新设计的那一方, 论文称为 minibinder, 可译作「小型结合蛋白」. §2.1 把设计长度设为 80-120 个 amino acid residue. 这是该任务的长度设定, 论文在这里给出的是实验范围. 实验一中, GPT‑6.2 设计 backbone, SolubleMPNN 为 backbone 生成 sequence, 实验室测试的是按候选序列制成的蛋白. *§2.1, pp. 6 · §2.5, pp. 14*.  
+**Bind (结合)**: 指小蛋白和靶蛋白发生可测量的物理相互作用. 论文用 **BLI (生物层干涉法)** 记录两者结合和解离时的信号, 先做单浓度筛选, 再对部分命中做多浓度复测并估计亲和力. *Appendix B.2-B.3, pp. 61-62*.  
 
-**Small Protein (小型蛋白质)**: 这里指新设计的那一方, 论文称为 minibinder, 可译作「小型结合蛋白」. §2.1 把设计长度设为 80-120 个 amino acid residue. 这是该任务的长度设定, 论文在这里给出的是实验范围. 实验一中, GPT‑6.2 设计 backbone, SolubleMPNN 为 backbone 生成 sequence, 实验室测试的是按候选序列制成的蛋白. *论文 §2.1, 第 6 页 · 论文 §2.5, 第 14 页*.
+`基于计算的蛋白质设计质量指标与 RFdiffusion 模型的结果`, 具体指用结构预测来评估 De novo 设计出来的小型结合蛋白骨架. 这一步发生在骨架生成之后. **GPT‑6.2** 和 **RFdiffusion** (RFD1 [De novo design of protein structure and function with RFdiffusion (Joseph L. Watson et al, 2023)](https://www.nature.com/articles/s41586-023-06415-8)) 负责生成骨架, 论文用同一套下游评估流程和判据给两者打分. *§2.1, pp. 6 · Figure 3, pp. 8*. 对每个提交的 backbone 用 **SolubleMPNN** 生成 8 条候选序列, 再用 **ESMFold2** 预测每条 sequence 与 target 形成的 complex structure. 只要有一条序列的预测结构同时满足以下三项:
 
-**Bind (结合)**: 指小蛋白和靶蛋白发生可测量的物理相互作用. 论文用 **BLI (生物层干涉法)** 记录两者结合和解离时的信号, 先做单浓度筛选, 再对部分命中做多浓度复测并估计亲和力. *论文附录 B.2-B.3, 第 61-62 页*.
-
-"基于计算的蛋白质设计质量指标与 RFdiffusion 模型的结果", 具体指用结构预测来评估 De novo 设计出来的小型结合蛋白骨架. 这一步发生在骨架生成之后. **GPT‑6.2** 和 **RFdiffusion** (RFD1 [De novo design of protein structure and function with RFdiffusion (Joseph L. Watson et al, 2023)](https://www.nature.com/articles/s41586-023-06415-8)) 负责生成骨架, 论文用同一套下游评估流程和判据给两者打分. *论文 §2.1, 第 6 页 · 图 3, 第 8 页*. 对每个提交的 backbone 用 **SolubleMPNN** 生成 8 条候选序列, 再用 **ESMFold2** 预测每条 sequence 与 target 形成的 complex structure. 只要有一条序列的预测结构同时满足以下三项:
-
-| 判据 | 它在问什么 | 通过线 |
+| Criterion | What it asks | Gate |
 | --- | --- | --- |
-| 靶蛋白对齐后的 binder RMSD | 把靶蛋白对齐后, 小蛋白是否仍摆在设计的位置和朝向 | < 5 Å |
-| 小蛋白单独对齐后的骨架 RMSD | 把小蛋白本身对齐后, 它是否折成设计的形状 | < 3 Å |
-| 靶蛋白 → 小蛋白的方向性 ipTM | 结构预测模型对这两条链之间的相对排布有多大信心 | ≥ 0.5 |
+| Target 对齐后的 binder RMSD | 把 target 对齐后, 看 **small protein 相对于 target 的结合姿态** | $< 5 \text{Å}$ |
+| Small protein 单独对齐后的骨架 RMSD | 把 small protein 本身对齐, 看 **small protein 自身的折叠形状** | $< 3 \text{Å}$ |
+| Target → small protein 的方向性 ipTM | **SPM (structure prediction model) 「有多少把握」**, 小蛋白会贴在靶蛋白的这个位置, 并且朝着这个方向 | $\geq 0.5$ |
 
-这个 backbone 就算计算通过. 论文 §8.2, 第 48–49 页
+这个 backbone 就算计算通过. *§8.2, pp. 48-49*.
+
+`我们向 GPT-6.2 提供了五种目标蛋白质的三维结构` + `我们在实验室中测试了 322 种迷你载体, 针对 5 个目标进行了实验`, 研究者给 GPT‑6.2 5 target 的三维结构, 每种 target 对应多个 candidate Small protein; 322 是湿实验测试的 candidate 数量. 五组加起来就是 $92 + 93 + 46 + 46 + 45 = 322$, 依次对应 PD‑L1、IL‑7Rα、TrkA、VEGF‑A、IL‑17A. *§2.5, pp. 16*.
