@@ -16,6 +16,11 @@ tags:
 > We then tested how precisely we could guide the model's changes to existing therapeutic antibodies. This time, we gave the model the original sequences and asked it to change about half the amino acids in each of three binding loops while keeping the rest of the sequence intact. We tested the redesigned portions of the antibodies as fragments in the lab. Of 272 fragments based on five therapeutic antibodies, 179 (66%) showed binding to the original target, PD-1 or PD-L1.  
 > 随后, 我们测试了能在多大程度上精确控制模型对现有治疗性抗体的改动. 这次我们提供原始序列, 要求模型在三个结合环中各改变约一半的氨基酸, 其余序列保持不变. 我们将重新设计的部分制成抗体片段, 并在实验室中测试其结合能力. 在基于 5 种治疗性抗体设计的 272 个片段中, 有 179 个 (66%) 检出与各自原来的靶标 PD-1 或 PD-L1 结合.  
 
-**Affinity Maturation (亲和力成熟)**:
-**(结合选择性)**:
-**(环序列)**:
+**Affinity Maturation (亲和力成熟)**: 指提高 antibody 对同一 target 的结合亲和力的过程. 在抗体工程中, 可以通过改变结合环的序列来实现. 在相同测量条件下, 改造后的抗体如果具有更低的解离常数 $K_D$, 就说明它与靶标结合得更紧.  
+**Binding Selectivity (结合选择性)**: 指 antibody 有多偏好与预定 target binding, 相比之下与其他分子的结合有多弱. 判断选择性需要比较同一个抗体对不同蛋白的结合表现.  
+**Loop Sequence (环序列)**: 指构成一段抗体结合环的 amino acid 按顺序排列得到的序列. 这里的结合环指 **CDR (互补决定区)**.**「环序列」**描述每个位置是什么氨基酸, **「环结构」**描述这些残基在三维空间中怎么排布.
+**VHH (单域抗体)**: VHH 是骆驼科动物的重链抗体中负责识别抗原的可变结构域, 也常称为纳米抗体 (nanobody). 单个 VHH 就能独立结合抗原, 其结合表面主要由 CDR1、CDR2 和 CDR3 三个环组成.
+
+这里第一项 VHH 实验隐藏 CDR1、CDR2 和 CDR3 的原序列, 让 GPT-6.2 为三个环各设计一条新序列, 测试与 IL-4Rα 的结合; 后一项治疗性抗体实验提供原序列, 要求 GPT-6.2 在三个结合环中各替换约一半的 residue, 并保留环外序列, 随后用改造后的抗体片段测试是否仍能结合各自原来的靶标 PD-1 或 PD-L1. §3.3.3, pp. 29-30.
+
+> 5 种原始 antibody 分别贡献了 $92 + 92 + 31 + 54 + 3 = 272$ 个受测变体.

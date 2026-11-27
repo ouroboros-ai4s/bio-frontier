@@ -23,4 +23,4 @@ OpenAI 讲述了三类 **wet-lab validation (湿实验验证)**:
 
 ## Redesigning the Parts of an Antibody that Bind to a Target
 
-[[2026-11-27-redesigning-the-parts-of-an-antibody-that-bind-to-a-target]]
+[[2026-11-27-redesigning-the-parts-of-an-antibody-that-bind-to-a-target]] 笔记梳理了 OpenAI 的 **抗体结合环重设计实验**. 研究人员先隐去 VHH 的原始重链互补决定区 (HCDR) 序列, 让 GPT-6.2 根据抗原序列和抗体框架为这些环设计新序列. 随后, 他们提供治疗性抗体的原始序列, 要求模型按指定幅度修改 HCDR, 并保留环外序列. 两项实验都在实验室中测试了改造后的抗体片段能否继续结合各自的原靶标.
