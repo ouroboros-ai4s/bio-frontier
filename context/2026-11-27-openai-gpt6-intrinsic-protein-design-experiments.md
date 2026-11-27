@@ -12,3 +12,5 @@ OpenAI 的 blog 中讲述了三类湿实验验证:
 1. **Designing Small Proteins that Bind to a Target**: GPT 负责设计三维骨架, 专用模型补齐序列并协助筛选; 湿实验检测成品能否结合靶标.
 2. **Designing New Sequences for 3D Protein Structures**: 骨架已给定, GPT 负责提出新的氨基酸序列; 湿实验检测用这些新序列制成的蛋白能否结合原靶标.
 3. **Redesigning the Parts of an Antibody that Bind to a Target**: GPT 只改写已有抗体的结合环序列; 湿实验检测改写后是否保留结合能力.
+
+## Designing Small Proteins that Bind to a Target
