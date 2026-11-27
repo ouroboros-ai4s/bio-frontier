@@ -48,3 +48,7 @@ GPT-6.2 通过上述 script 设计 minibinder 的三维骨架, 再由 **SolubleM
 > 3. 决定送检顺序. 同一候选须有至少 2 个模型各自通过全部条件, 才有资格送检. 达标候选按 全部 3 个模型的平均 ipSAE 排名. §8.3, p. 49.
 >
 > 将每条 SolubleMPNN 生成的 minibinder 序列与对应靶蛋白一起交给 ESMFold2、Boltz-2 和 OpenDDE, 由三个模型分别预测复合物的三维结构. 对每份预测, 先将预测结构的靶链与原设计的靶链对齐, 再计算两份结构中 minibinder 的 $C\alpha$ RMSD, 检查它是否在预定位置重现了设计的形状和姿态. 同一候选须有至少 2 个模型各自同时满足 $\mathrm{RMSD} < 2.2 \text{Å}$、$\mathrm{minimum} ~ \mathrm{ipSAE} \geq 0.50$ 和 $\mathrm{ipTM} \geq 0.5$, 才有资格送检. 达标候选按全部 3 个模型的平均 ipSAE 从高到低排序. *§8.3, p. 49*.
+
+`... but rates depend heavily on how strictly researchers filter designs before lab validation and their definition of binding.`  **$92 + 93 + 46 + 46 + 45 = 322$ 是经过计算筛选后**, 五个靶点实际有湿实验筛查结果的候选数. 论文这两节没有列出筛选前各组共有多少候选. §2.5, p. 16 · §8.3, p. 49.  
+**「筛选程度」决定哪些候选进入分母**. 论文 §8.3 的原话是 "at least two of the three models had to meet all structural criteria for that campaign." 在这项实验里, 每个候选由 ESMFold2、Boltz-2 和 OpenDDE 分别预测. 至少两个模型各自通过全部结构判据, 候选才有资格送检. 团队再用三个模型的平均 ipSAE 给达标候选排序. Blog 说的筛选程度, 就包括送检门槛设多严、从合格候选里挑哪些去测. §8.3, p. 49.  
+**「对结合的理解」指实验上怎样判定一个候选算命中**, 这决定分子. 论文写的是 "Experimental hit rates are the fraction of designs with a reported screening result that were classified as binders." 这里的 35 个命中来自 $1 \text{μM}$ 单浓度 BLI 筛查. 后续多浓度 BLI 用于测定部分候选的结合亲和力 $K_{D}$. 即使测试同一批蛋白, 如果另一项研究要求达到某个 $K_{D}$ 门槛才计为命中, 分子也可能不同. 所以比较这篇论文的 $35/322$ 和 RFdiffusion 的命中率时, 要先对照两边的送检规则和实验阳性判据. §2.5, p. 16 · §8.3, p. 49.  
