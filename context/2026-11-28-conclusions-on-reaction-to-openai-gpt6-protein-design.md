@@ -3,9 +3,9 @@ tags:
   - conclusion
 ---
 
-# OpenAI GPT-6 蛋白质设计研究的外部反应提炼
+# OpenAI GPT-6 蛋白质设计研究的总结
 
-> 以下四条 conclusion 总结自 [[2026-11-28-reactions-to-openai-gpt6-protein-design]].
+> 以下四条 conclusion 总结自 [[2026-11-28-reactions-to-openai-gpt6-protein-design]] 和 [[2026-11-27-openai-gpt6-intrinsic-protein-design-experiments]].
 
 1. **通用模型有望补足专用模型的能力缺口**: GPT-6.2 在多种蛋白设计任务中理解不同约束并提出了候选. 一个值得验证的 hypothesis 是, 通用模型能借助更广泛的知识和推理能力, 处理专用模型训练较少覆盖的任务.
 

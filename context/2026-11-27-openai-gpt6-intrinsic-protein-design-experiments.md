@@ -1,6 +1,6 @@
 ---
 tags:
-  - conclusion
+  - source
 ---
 
 # GPT-6 Intrinsic Protein Design: Experimental Methods, Wet-Lab Validation, and Evidence

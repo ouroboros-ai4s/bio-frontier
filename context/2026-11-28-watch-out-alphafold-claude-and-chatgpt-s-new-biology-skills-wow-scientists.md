@@ -3,7 +3,10 @@ tags:
   - source
 ---
 
-# Watch out, AlphaFold: Claude and ChatGPT's new biology skills wow scientists  
+# Watch out, AlphaFold: Claude and ChatGPT's new biology skills wow scientists
+
+> OpenAI: [GPT-6 Models Demonstrate Intrinsic Protein-Design Capabilities](https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/).  
+> Anthropic: [Claude was trained on protein sequences at scale](https://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/).  
 
 Earlier this month, Xinming Tu set out to test what artificial-intelligence models know about proteins. Tu, a researcher at an AI biology company called Phylo in South San Francisco, California, asked large language models (LLMs) from OpenAI, Anthropic and Google to predict the sequences of obscure bacterial proteins.  
 本月早些时候, Xinming Tu 着手测试 AI 模型对蛋白质了解多少. 他在加利福尼亚州南旧金山的一家 AI 生物科技公司 Phylo 担任研究员. 他让 OpenAI、Anthropic 和 Google 的大语言模型 (LLM) 预测一些鲜为人知的细菌蛋白质的序列.
