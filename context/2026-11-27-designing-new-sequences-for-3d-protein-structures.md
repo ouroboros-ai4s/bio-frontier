@@ -32,6 +32,8 @@ tags:
 
 随后的 3 个尚未发表的 minibinder 骨架, 对应 2 个 target. 其中 2 个 backbone 针对 PD-L1, 1 个针对 IL-7Rα. 这些 backbone 是 GPT-6.2 此前生成 **ProteinMPNN** ([Robust deep learning–based protein sequence design using ProteinMPNN (Justas Dauparas et al, 2022)](https://www.science.org/doi/10.1126/science.add2187)) 配过序列, 制备出的 3 个蛋白都在实验室里检出了 binding. 这次团队把同样的 backbone 交给 GPT-6.2, 隐去原序列, 让它设计新序列. 107 个是按新序列制备并测试的蛋白数量, 其中 PD-L1 有 $9/89$ 个检出结合, IL-7Rα 有 $5/18$ 个, 合计 14/107 (13.1%). §3.3.1, p. 22.
 
+> 研究人员给 GPT-6.2 看 minibinder 和靶蛋白在复合物里的骨架, 隐去 minibinder 的原序列. GPT-6.2 要做的是给 minibinder 骨架上的每个残基位置选一种氨基酸. 这些氨基酸按位置排起来就是一条新序列, 可以用 FASTA 表示. 论文交代了输出是序列, 未说明模型是否直接以 FASTA 格式返回. §3.3.1, p. 22. 随后, ESMFold2、Boltz-2 和 OpenDDE 用新序列和靶蛋白序列预测复合物的三维结构, 检查新序列能否重现给定的骨架和结合姿态.
+
 论文明确区分 ProteinMPNN 和 SolubleMPNN:
 
 - **SolubleMPNN** 出现在第一项实验的方法里. GPT-6.2 生成候选骨架后, 团队用 SolubleMPNN 为每个骨架设计 8 条候选序列. §2.5, p. 14.
